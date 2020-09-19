@@ -535,7 +535,7 @@ margin = 0
 
 [module/sep]
 inherit = module/decor-glyph
-content = "/"
+content = " | "
 
 [module/space]
 inherit = module/decor-glyph
