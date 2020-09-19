@@ -103,7 +103,7 @@ font-2 = unifont:size=7.5;3
 ;   modules-right = ipc clock
 modules-left = bspwm resize
 modules-center =
-modules-right = wireless-network sep memory sep cpu sep pulseaudio sep xbacklight sep battery sep date sep redshift sep screenshot space powermenu
+modules-right = wireless-network sep memory sep cpu sep pulseaudio sep brightness sep battery sep date sep redshift sep screenshot space powermenu
 
 ; The separator will be inserted between the output of each module
 separator =
@@ -245,6 +245,17 @@ label-focused-background = #50505354
 label-focused-underline = #f92672
 label-focused-padding = 2
 
+[module/brightness]
+type = custom/script
+interval = 0.2
+exec = ~/.config/polybar/backlight.sh
+scroll-up = exec light -A 1
+scroll-down = exec light -U 1
+label = %output%%
+format-prefix = " "
+format-foreground = #7cd57c
+label-foreground = #7cd57c
+
 [module/xbacklight]
 type = internal/xbacklight
 card = intel_backlight
@@ -254,6 +265,8 @@ format-prefix = " "
 label = %percentage%%
 format-foreground = #7cd57c
 label-foreground = #7cd57c
+scroll-up = exec xbacklight -inc 10
+scroll-down = exec xbacklight -dec 10
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
@@ -266,10 +279,8 @@ bar-empty = ─
 
 
 [module/backlight]
-inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
-output = eDP-1
 format = <label>
 label = %percentage%%
 label-foreground = #3EC13F
@@ -280,8 +291,8 @@ ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
 enable-scroll = true
-scroll-up = exec light -A 5
-scroll-down = exec light -U 6
+scroll-up = exec xbacklight -inc 10
+scroll-down = exec xbacklight -dec 10
 
 [module/wireless-network]
 type = internal/network
@@ -572,3 +583,4 @@ content = ""
 click-left = source ~/.config/rofi/scripts/screenshot.sh
 content-foreground = #ffffff
 label-foreground = #ffffff
+
