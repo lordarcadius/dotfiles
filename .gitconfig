@@ -8,3 +8,5 @@
 	editor = nano
 [credential]
 	helper = cache --timeout=80000
+[pull]
+	ff = only

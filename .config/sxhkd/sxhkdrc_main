@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -dpi 90 -show-icons -theme slate -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns
+	rofi -dpi 90 -show-icons -theme ~/Linux/Setup/slate -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns
 
 #super + alt + {r, n, x, i}
 #	passmenu-rs { ,new, del, insert}
@@ -118,7 +118,7 @@ super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+super + alt + ctrl + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
@@ -160,4 +160,12 @@ alt + c
 #File manager
 alt + f
     nautilus
+
+#Android Studio
+alt + a
+    android-studio
+
+#VS Code
+alt + v
+    code
 
